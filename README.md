@@ -1,2 +1,0 @@
-# Quotra
-NL based Quotation 
