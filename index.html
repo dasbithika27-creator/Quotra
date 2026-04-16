@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotra — AI-Powered NL-to-Quote CPQ for Mid-Market B2B</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Spline+Sans+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ======== HERO ======== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            opacity: 0.95;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.2rem;
+            opacity: 0.8;
+            margin-bottom: 40px;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 20px;
+        }
+
+        /* ======== SECTION STYLES ======== */
+        section {
+            padding: 80px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            color: #1a1a1a;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* ======== PROBLEM SECTION ======== */
+        .problem {
+            background: #f9f9f9;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .problem-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #667eea;
+        }
+
+        /* ======== SOLUTION SECTION ======== */
+        .solution {
+            background: white;
+        }
+
+        .solution-highlight {
+            background: linear-gradient(135deg, #667eea15 0%, #764ba215 100%);
+            padding: 40px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin: 40px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #667eea;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid #f0f0f0;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            border-color: #667eea;
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.1);
+        }
+
+        .feature-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
+        .feature-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #667eea;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        /* ======== INDUSTRIES SECTION ======== */
+        .industries {
+            background: white;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .industry-card {
+            background: linear-gradient(135deg, #667eea05 0%, #764ba205 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #667eea30;
+        }
+
+        .industry-card .tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .industry-card h4 {
+            margin-bottom: 8px;
+        }
+
+        .industry-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* ======== METRICS SECTION ======== */
+        .metrics {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .metrics h2 {
+            color: white;
+        }
+
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .metric {
+            text-align: center;
+        }
+
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .metric-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* ======== MOONSHOTS SECTION ======== */
+        .moonshots {
+            background: #f9f9f9;
+        }
+
+        .moonshots-intro {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            border-left: 4px solid #764ba2;
+        }
+
+        .moonshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .moonshot-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 4px solid #764ba2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .moonshot-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            color: #764ba2;
+        }
+
+        .moonshot-card .status {
+            display: inline-block;
+            background: #fff3cd;
+            color: #856404;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 15px;
+        }
+
+        /* ======== WHY QUOTRA SECTION ======== */
+        .why-quotra {
+            background: white;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pillar {
+            background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
+            padding: 40px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .pillar h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .pillar-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        /* ======== ROADMAP SECTION ======== */
+        .roadmap {
+            background: linear-gradient(135deg, #667eea05 0%, #764ba205 100%);
+        }
+
+        .roadmap-timeline {
+            margin-top: 40px;
+        }
+
+        .roadmap-phase {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .roadmap-phase.phase-2 {
+            border-left-color: #764ba2;
+        }
+
+        .roadmap-phase.phase-3 {
+            border-left-color: #667eea;
+        }
+
+        .phase-title {
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .phase-2 .phase-title {
+            color: #764ba2;
+        }
+
+        .phase-3 .phase-title {
+            color: #667eea;
+        }
+
+        /* ======== FOOTER ======== */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* ======== RESPONSIVE ======== */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .cta-button.secondary {
+                display: block;
+                margin: 10px auto 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ======== HERO ======== -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Quotra</h1>
+            <p>AI-Powered NL-to-Quote Configure-Price-Quote</p>
+            <p class="tagline">Enterprise-grade CPQ. Startup pricing. 30-second quotes.</p>
+            <button class="cta-button">Explore Quotra</button>
+            <a href="#problem" class="cta-button secondary">Learn More</a>
+        </div>
+    </section>
+
+    <!-- ======== PROBLEM ======== -->
+    <section class="problem" id="problem">
+        <div class="container">
+            <h2>The Problem</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 40px;">Mid-market B2B companies spend 2–4 hours per quote. Legacy CPQ systems cost $150K–$300K. Sales reps juggle spreadsheets and slow workflows. Deals slip away.</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <h4>⏱️ Manual Quoting is Slow</h4>
+                    <p>Most companies still use spreadsheets and email. Configuration takes 30–60 minutes per quote. Fast-growing teams waste 10+ hours per week.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>💰 Legacy CPQ is Expensive</h4>
+                    <p>Enterprise systems (Ericsson, Amdocs, Huawei) cost $1M+. Mid-market players (Salesforce CPQ, Configit) run $150K–$300K. Startups can't afford them.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>🔧 Configuration is Complex</h4>
+                    <p>Every vertical has unique rules: MSPs need device ratios, HVAC needs system compatibility, specialty chemicals need regulatory compliance. One-size-fits-none.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>📊 No Intelligence in Pricing</h4>
+                    <p>Reps don't know if they're protecting margin, matching competitors, or triggering churn risk. Pricing is ad-hoc. Revenue leaks silently.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>🚀 No Onboarding Velocity</h4>
+                    <p>Implementing a CPQ takes weeks. Uploading your catalog, defining rules, training reps. 40% of mid-market CPQ rollouts never finish.</p>
+                </div>
+                <div class="problem-card">
+                    <h4>👥 The Integration Tax</h4>
+                    <p>Your CRM is Pipedrive. Your ERP is NetSuite. Your inventory is custom. The CPQ doesn't talk to any of them. More manual work.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== SOLUTION ======== -->
+    <section class="solution">
+        <div class="container">
+            <h2>The Quotra Solution</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 20px;">Tell Quotra what you sell. It handles the rest.</p>
+
+            <div class="solution-highlight">
+                ✨ Type a product description in plain English → Quotra generates configuration rules, pricing logic, and quote templates automatically.
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-number">1</div>
+                    <h4>Natural Language Configuration</h4>
+                    <p>No coding. No rules engines. Upload your product catalog, describe the rules in English, and Quotra learns your business logic using Claude (frontier LLM).</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">2</div>
+                    <h4>AI-Powered Quote Generation</h4>
+                    <p>Reps describe what the customer needs. Quotra configures the product, applies rules, calculates pricing, and generates a branded PDF in 30 seconds.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">3</div>
+                    <h4>$299/Month—Not $150K</h4>
+                    <p>Starter: $299. Growth: $599. Scale: $1,200. Built for mid-market, not enterprises with unlimited budgets.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">4</div>
+                    <h4>API-First Architecture</h4>
+                    <p>Integrates with Salesforce, HubSpot, Pipedrive, NetSuite. Sync quotes to your CRM, pull inventory in real-time, trigger fulfillment workflows.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">5</div>
+                    <h4>Catalog-Grounded Intelligence</h4>
+                    <p>Quotra reads your actual products, pricing, and rules—not generic templates. Every quote is contextual, accurate, and compliant.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-number">6</div>
+                    <h4>Margin Protection Built-In</h4>
+                    <p>AI watches discount requests, flags margin leakage, checks competitor pricing, and suggests retention strategies for renewals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== INDUSTRIES WE SERVE ======== -->
+    <section class="industries">
+        <div class="container">
+            <h2>Who Benefits Most</h2>
+
+            <div class="industry-grid">
+                <div class="industry-card">
+                    <span class="tag">Tier 1 — Best Fit</span>
+                    <h4>Industrial Equipment & Machinery</h4>
+                    <p>Material handling, compressors, storage tanks. Multi-factor quoting (materials + labor + FX). RFQs that take 30+ min.</p>
+                </div>
+                <div class="industry-card">
+                    <span class="tag">Tier 1 — Best Fit</span>
+                    <h4>MSPs / IT Resellers / VARs</h4>
+                    <p>Device ratios, license tiers, compliance add-ons. $90B SMB market. 88% of SMBs now use MSPs. Mid-market ACVs.</p>
+                </div>
+                <div class="industry-card">
+                    <span class="tag">Tier 1 — Best Fit</span>
+                    <h4>Specialty Contractors</h4>
+                    <p>HVAC, electrical, mechanical. Field quotes, system compatibility checks, real-time availability. Fragmented tooling.</p>
+                </div>
+                <div class="industry-card">
+                    <span class="tag">Tier 2 — Strong Fit</span>
+                    <h4>Solar & Renewable Installers</h4>
+                    <p>30–45 min per quote, 5–8 hours busywork per week. Vendor consolidation = pain. Mobile voice-to-quote is killer.</p>
+                </div>
+                <div class="industry-card">
+                    <span class="tag">Tier 2 — Strong Fit</span>
+                    <h4>Wholesale Distribution & Print</h4>
+                    <p>RFQs, takeoffs, custom packing. 20% CAGR for AI in distribution. 62% of print shops piloting AI already.</p>
+                </div>
+                <div class="industry-card">
+                    <span class="tag">Tier 3 — Emerging</span>
+                    <h4>Medical Device & Life Sciences</h4>
+                    <p>Complex compliance (FDA, ISO), 8,000+ configurable parts, multi-channel distribution. High-value, longer sales cycles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== METRICS ======== -->
+    <section class="metrics">
+        <div class="container">
+            <h2>Impact</h2>
+
+            <div class="metrics-grid">
+                <div class="metric">
+                    <div class="metric-number">30 sec</div>
+                    <div class="metric-label">Quote Generation Time</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">93%</div>
+                    <div class="metric-label">Faster Config vs. Manual</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">12%</div>
+                    <div class="metric-label">Avg Margin Improvement</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-number">$300K</div>
+                    <div class="metric-label">Typical First-Year Revenue Impact</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== MOONSHOT FEATURES ======== -->
+    <section class="moonshots">
+        <div class="container">
+            <h2>Moonshot Features (90-Day Roadmap)</h2>
+
+            <div class="moonshots-intro">
+                <h3 style="margin-bottom: 15px;">We're not just matching competitors. We're building what nobody else is shipping.</h3>
+                <p>Three features that will change how mid-market teams quote, sell, and close deals.</p>
+            </div>
+
+            <div class="moonshots-grid">
+                <div class="moonshot-card">
+                    <h4>🔗 Spec-Sheet-to-Catalog Auto-Import</h4>
+                    <p>Drop a PDF spec sheet or supplier price list. AI extracts SKUs, options, pricing rules, compatibility. Catalog populated in minutes instead of weeks.</p>
+                    <span class="status">90 Days</span>
+                </div>
+                <div class="moonshot-card">
+                    <h4>📧 RFQ Inbox Listener</h4>
+                    <p>Forward any RFQ to <code>rfq@yourcompany.quotra.app</code>. Quotra parses it, maps line items to your catalog, drafts the quote, replies with a PDF link.</p>
+                    <span class="status">90 Days</span>
+                </div>
+                <div class="moonshot-card">
+                    <h4>💬 Slack/Teams Quote-in-Chat</h4>
+                    <p>@quotra quote 50 Enterprise seats for Acme, Q2 promo → instant signed PDF link in Slack. No leaving your workflow.</p>
+                    <span class="status">120 Days</span>
+                </div>
+                <div class="moonshot-card">
+                    <h4>🎤 Voice-to-Quote for Field Sales</h4>
+                    <p>Record a 30-sec voicenote on the jobsite → transcribed → configured → quote in customer's inbox before you leave.</p>
+                    <span class="status">180 Days</span>
+                </div>
+                <div class="moonshot-card">
+                    <h4>🛡️ Margin-Protecting AI Negotiator</h4>
+                    <p>Buyer asks for discount. AI checks margin, pulls customer history, suggests counter-offer that protects profit.</p>
+                    <span class="status">180 Days</span>
+                </div>
+                <div class="moonshot-card">
+                    <h4>📊 Renewal Churn Radar</h4>
+                    <p>Every signed quote becomes a tracked contract. AI watches usage and auto-drafts renewals 90 days out with retention pricing.</p>
+                    <span class="status">Post-Series A</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== WHY QUOTRA ======== -->
+    <section class="why-quotra">
+        <div class="container">
+            <h2>Why Teams Choose Quotra</h2>
+
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <div class="pillar-icon">⌨️</div>
+                    <h3>Type, Don't Click</h3>
+                    <p>No forms. No dropdown hell. Reps describe what they're selling in plain English. Quotra does the configuration.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">🎯</div>
+                    <h3>Catalog-Grounded AI</h3>
+                    <p>Every quote is based on your actual products, pricing, and rules. Not generic templates. Hallucination-resistant.</p>
+                </div>
+                <div class="pillar">
+                    <div class="pillar-icon">💰</div>
+                    <h3>Enterprise AI at Startup Price</h3>
+                    <p>Frontier LLM (Claude) + telco-grade configuration engine. $299/month, not $150K. Fair pricing for growing teams.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== ROADMAP ======== -->
+    <section class="roadmap">
+        <div class="container">
+            <h2>Product Roadmap</h2>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase">
+                    <div class="phase-title">🟢 Q2 2026 (Now) — MVP Foundation</div>
+                    <p><strong>Core features:</strong> Catalog upload, NL rule definition, AI quote generation, PDF export, basic CRM sync (Salesforce/HubSpot).</p>
+                    <p><strong>Target:</strong> Industrial Equipment + MSP early adopters.</p>
+                </div>
+
+                <div class="roadmap-phase phase-2">
+                    <div class="phase-title">🟡 Q3 2026 — Moonshots #1-3 (Big Wins)</div>
+                    <p><strong>Ship:</strong> Spec-Sheet-to-Catalog auto-import, RFQ Inbox Listener, Slack/Teams integration.</p>
+                    <p><strong>Impact:</strong> Removes onboarding friction, viral adoption, reps live in chat.</p>
+                </div>
+
+                <div class="roadmap-phase phase-3">
+                    <div class="phase-title">🔵 Q4 2026 – Series A Positioning</div>
+                    <p><strong>Ship:</strong> Voice-to-Quote for mobile, Margin Negotiator, advanced analytics dashboard.</p>
+                    <p><strong>Target:</strong> Enterprise deals, vertical-specific templates (Solar, Medical Device, HVAC).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======== COMPETITIVE POSITIONING ======== -->
+    <section style="background: #f9f9f9; padding: 80px 0;">
+        <div class="container">
+            <h2>How Quotra is Different</h2>
+
+            <table style="width: 100%; margin-top: 40px; border-collapse: collapse;">
+                <thead style="background: #667eea; color: white;">
+                    <tr>
+                        <th style="padding: 15px; text-align: left;">Feature</th>
+                        <th style="padding: 15px; text-align: left;">Enterprise (Ericsson, Amdocs)</th>
+                        <th style="padding: 15px; text-align: left;">Mid-Market (Salesforce, Configit)</th>
+                        <th style="padding: 15px; text-align: left; color: #ffd700;">Quotra</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 15px;">Natural Language Config</td>
+                        <td style="padding: 15px;">❌ Rules engine only</td>
+                        <td style="padding: 15px;">❌ Requires consultants</td>
+                        <td style="padding: 15px; background: #f0f8ff;">✅ Native AI, self-serve</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 15px;">Quote Time</td>
+                        <td style="padding: 15px;">5–10 min + approval</td>
+                        <td style="padding: 15px;">2–5 min</td>
+                        <td style="padding: 15px; background: #f0f8ff;">⚡ 30 seconds</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 15px;">Price</td>
+                        <td style="padding: 15px;">$1M+ implementation</td>
+                        <td style="padding: 15px;">$150K–$300K/year</td>
+                        <td style="padding: 15px; background: #f0f8ff;">💰 $299–$1.2K/month</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 15px;">Setup Time</td>
+                        <td style="padding: 15px;">6–12 months</td>
+                        <td style="padding: 15px;">6–8 weeks</td>
+                        <td style="padding: 15px; background: #f0f8ff;">🚀 1 day</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #ddd;">
+                        <td style="padding: 15px;">CRM Agnostic</td>
+                        <td style="padding: 15px;">❌ Locked ecosystem</td>
+                        <td style="padding: 15px;">⚠️ Salesforce-centric</td>
+                        <td style="padding: 15px; background: #f0f8ff;">✅ Works with any CRM</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 15px;">Margin Intelligence</td>
+                        <td style="padding: 15px;">⚠️ Basic</td>
+                        <td style="padding: 15px;">⚠️ Add-on</td>
+                        <td style="padding: 15px; background: #f0f8ff;">✅ Built-in + AI negotiator</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- ======== CLOSING CTA ======== -->
+    <section style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 80px 0; text-align: center;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 20px;">Ready to Stop Wasting Time on Quotes?</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 30px; color: rgba(255,255,255,0.9);">Join 50+ mid-market teams using Quotra to close deals 10x faster.</p>
+            <button class="cta-button" onclick="alert('Sign up coming soon!')">Start Your 14-Day Free Trial</button>
+            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">No credit card required • 30-second setup • Cancel anytime</p>
+        </div>
+    </section>
+
+    <!-- ======== FOOTER ======== -->
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 15px;">Quotra — AI-Powered Configure-Price-Quote for Mid-Market B2B</p>
+            <p>Built with Claude API • Powered by Anthropic • Cloud-native on Supabase</p>
+            <p style="margin-top: 20px; font-size: 0.85rem;">© 2026 Quotra Inc. All rights reserved. | <a href="#" style="color: #667eea;">Terms</a> | <a href="#" style="color: #667eea;">Privacy</a></p>
+        </div>
+    </footer>
+</body>
+</html>
