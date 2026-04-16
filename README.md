@@ -336,7 +336,7 @@ Every signed quote becomes a tracked contract. AI watches usage signals and auto
 - Payback: 18 months
 - LTV: $10.8K
 
-**Founders:** [Your name], [Co-founder], [Co-founder]
+**Founders:** Bithika Das
 
 ---
 
@@ -344,7 +344,7 @@ Every signed quote becomes a tracked contract. AI watches usage signals and auto
 
 - **Website:** quotra.app (coming soon)
 - **GitHub:** github.com/quotra/quotra
-- **Email:** hello@quotra.app
+- **Email:** dasbithika27@gmail.com
 - **Free Trial:** 14 days, no credit card required
 
 ---
